@@ -25,13 +25,18 @@ namespace LiquidacionUIDos
 
         private void RegistrarBtn_Click(object sender, EventArgs e)
         {
-            
-            
+
             if (ValidarCampos())
             {
-                Registrar();
+                if (ValidarExistencia())
+                {
+                    Registrar();
+                }
+                else
+                {
+                    MessageBox.Show("Ya Existe un Registro con este  Numero de Liquidacion ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-           
         }
 
         public void Registrar()
@@ -152,6 +157,19 @@ namespace LiquidacionUIDos
                 
             }
         }
+        public bool ValidarExistencia()
+        {
+            service = new LiquidacionCuotaModeradoraService();
+            bool control=true;
+            foreach (LiquidacionCuotaModeradora liquidacion in service.ConsultarListaLiquidacion())
+            {
+                if (NumeroLiquidacionTxt.Text == Convert.ToString(liquidacion.NumeroLiquidacion))
+                {
+                    control = false;
+                }
+            }
+            return control;
+        }
         public void ValidarInstancia()
         {
             if (TipoAfiliacionCmb.Text== "Regimen Contributivo")
@@ -177,9 +195,7 @@ namespace LiquidacionUIDos
             AñoCmb.Items.Equals("año");
         }
 
-        private void NumeroLiquidacionTxt_Validated(object sender, EventArgs e)
-        {
-        }
+       
 
         private void NumeroLiquidacionTxt_KeyPress(object sender, KeyPressEventArgs e)
         {

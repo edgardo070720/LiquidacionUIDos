@@ -228,7 +228,6 @@
             this.NumeroLiquidacionTxt.Size = new System.Drawing.Size(193, 20);
             this.NumeroLiquidacionTxt.TabIndex = 12;
             this.NumeroLiquidacionTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeroLiquidacionTxt_KeyPress);
-            this.NumeroLiquidacionTxt.Validated += new System.EventHandler(this.NumeroLiquidacionTxt_Validated);
             // 
             // CedulaTxt
             // 
