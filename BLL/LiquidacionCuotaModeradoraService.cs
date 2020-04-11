@@ -26,5 +26,11 @@ namespace BLL
 
             return "Se ha eliminado correctamente";
         }
+
+        public string ModificarLiquidacion(List<LiquidacionCuotaModeradora> liquidacions)
+        {
+            repository.ModificarArchivo(liquidacions);
+            return "se ha modificado correctamente";
+        }
     }
 }

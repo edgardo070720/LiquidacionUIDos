@@ -58,12 +58,12 @@ namespace Entity
                 CuotaModeradora = 250000;
                 control = 1;
             }
-            if (((SalarioDevengado<= 1755606) &&(SalarioDevengado<=4389015))&&(cuota>= 900000))
+            if (((SalarioDevengado>= 1755606) &&(SalarioDevengado<=4389015))&&(cuota>= 900000))
             {
                 CuotaModeradora = 900000;
                 control = 1;
             }
-            if ((SalarioDevengado> 4389015) &&(cuota>=15000000))
+            if ((SalarioDevengado> 4389015) &&(cuota>=1500000))
             {
                 CuotaModeradora= 15000000;
                 control = 1;
