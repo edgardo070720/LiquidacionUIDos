@@ -79,7 +79,6 @@
             this.Column8,
             this.Column9,
             this.Column10});
-            this.TablaLiquidacionDtgv.Enabled = false;
             this.TablaLiquidacionDtgv.Location = new System.Drawing.Point(22, 184);
             this.TablaLiquidacionDtgv.Name = "TablaLiquidacionDtgv";
             this.TablaLiquidacionDtgv.Size = new System.Drawing.Size(1241, 87);

@@ -74,7 +74,6 @@ namespace LiquidacionUIDos
             this.Column10,
             this.Column11,
             this.Column12});
-            this.TablaLiquidacionDtvg.Enabled = false;
             this.TablaLiquidacionDtvg.Location = new System.Drawing.Point(45, 56);
             this.TablaLiquidacionDtvg.Name = "TablaLiquidacionDtvg";
             this.TablaLiquidacionDtvg.ReadOnly = true;
