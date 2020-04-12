@@ -13,7 +13,8 @@ namespace BLL
         LiquidacionCuotaModeradoraRepository repository = new LiquidacionCuotaModeradoraRepository();
         public string GuardarLiquidacion(LiquidacionCuotaModeradora liquidacion)
         {
-           return repository.GuardarArchivo(liquidacion);
+            repository.GuardarArchivo(liquidacion);
+            return "Se registro exitosamente"; 
         }
         public List<LiquidacionCuotaModeradora> ConsultarListaLiquidacion()
         {

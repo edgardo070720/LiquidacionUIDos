@@ -14,7 +14,7 @@ namespace DAL
         LiquidacionCuotaModeradora liquidacion;
         string name = @"Archivo de Liquidacion.txt";
 
-        public string GuardarArchivo(LiquidacionCuotaModeradora liquidacion)
+        public void  GuardarArchivo(LiquidacionCuotaModeradora liquidacion)
         {
             FileStream file = new FileStream(name, FileMode.Append);
             StreamWriter writer = new StreamWriter(file);
@@ -23,7 +23,7 @@ namespace DAL
                 $"{liquidacion.TopeMaximo};{liquidacion.CuotaModeradora};{liquidacion.Fecha}");
             writer.Close();
             file.Close();
-            return "Se registro exitosamente";
+            
         }
 
         public List<LiquidacionCuotaModeradora> LeerArchivo()
