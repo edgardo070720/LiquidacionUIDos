@@ -123,7 +123,7 @@ namespace LiquidacionUIDos
             TablaLiquidacionDtgv.Rows[i].Cells[4].Value = liquidacion.TipoAfiliacion;
             TablaLiquidacionDtgv.Rows[i].Cells[5].Value = liquidacion.SalarioDevengado;
             TablaLiquidacionDtgv.Rows[i].Cells[6].Value = liquidacion.ValorServicio;
-            TablaLiquidacionDtgv.Rows[i].Cells[7].Value = liquidacion.Tarifa;
+            TablaLiquidacionDtgv.Rows[i].Cells[7].Value = liquidacion.TarifaAplicada;
             TablaLiquidacionDtgv.Rows[i].Cells[8].Value = liquidacion.ValorReal;
             TablaLiquidacionDtgv.Rows[i].Cells[9].Value = liquidacion.TopeMaximo;
             TablaLiquidacionDtgv.Rows[i].Cells[10].Value = liquidacion.CuotaModeradora;

@@ -8,21 +8,49 @@ namespace Entity
 {
     public class RegimenContributivo : LiquidacionCuotaModeradora
     {
-        public override double CalcularTarifa(double salarioDevengado)
+        public override void  CalcularTarifa()
         {
-            if (salarioDevengado < 1755606)
+            if (SalarioDevengado < 1755606)
             {
-                return 0.15;
+                Tarifa= 0.15;
             }
-            if ((SalarioDevengado <= 1755606) && (salarioDevengado <= 4389015))
+            if ((SalarioDevengado <= 1755606) && (SalarioDevengado <= 4389015))
             {
-                return 0.2;
+                Tarifa=0.2;
             }
-            if(salarioDevengado > 4389015)
+            if(SalarioDevengado > 4389015)
             {
-                return 0.25;
+                Tarifa= 0.25;
             }
-            return 0;
+           
+        }
+
+        public override void ValidarTopeMaximo()
+        {
+            bool control = true;
+            if ((SalarioDevengado < 1755606) && (CuotaModeradora >= 250000))
+            {
+                CuotaModeradora = 250000;
+                control = false;
+            }
+            if (((SalarioDevengado >= 1755606) && (SalarioDevengado <= 4389015)) && (CuotaModeradora >= 900000))
+            {
+                CuotaModeradora = 900000;
+                control = false;
+            }
+            if ((SalarioDevengado > 4389015) && (CuotaModeradora >= 1500000))
+            {
+                CuotaModeradora = 15000000;
+                control = false;
+            }
+            if (control)
+            {
+                TopeMaximo = "No aplica";
+            }
+            else
+            {
+                TopeMaximo = "Aplica";
+            }
         }
     }
 }

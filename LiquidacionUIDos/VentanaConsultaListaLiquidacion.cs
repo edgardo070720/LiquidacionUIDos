@@ -36,7 +36,7 @@ namespace LiquidacionUIDos
                 TablaLiquidacionDtvg.Rows[i].Cells[4].Value = liquidacion.TipoAfiliacion;
                 TablaLiquidacionDtvg.Rows[i].Cells[5].Value = liquidacion.SalarioDevengado;
                 TablaLiquidacionDtvg.Rows[i].Cells[6].Value = liquidacion.ValorServicio;
-                TablaLiquidacionDtvg.Rows[i].Cells[7].Value = liquidacion.Tarifa;
+                TablaLiquidacionDtvg.Rows[i].Cells[7].Value = liquidacion.TarifaAplicada;
                 TablaLiquidacionDtvg.Rows[i].Cells[8].Value = liquidacion.ValorReal;
                 TablaLiquidacionDtvg.Rows[i].Cells[9].Value = liquidacion.TopeMaximo;
                 TablaLiquidacionDtvg.Rows[i].Cells[10].Value = liquidacion.CuotaModeradora;

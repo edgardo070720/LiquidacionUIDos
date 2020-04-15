@@ -8,9 +8,27 @@ namespace Entity
 {
     public class RegimenSubsidiado : LiquidacionCuotaModeradora
     {
-        public override double CalcularTarifa(double salarioDevengado)
+        public override void CalcularTarifa()
         {
-            return 0.05;
+            Tarifa= 0.05;
+        }
+
+        public override void ValidarTopeMaximo()
+        {
+            bool control = true;
+            if (CuotaModeradora >= 200000)
+            {
+                CuotaModeradora = 200000;
+                control = false;
+            }
+            if (control)
+            {
+                TopeMaximo = "No aplica";
+            }
+            else
+            {
+                TopeMaximo = "Aplica";
+            }
         }
     }
 }

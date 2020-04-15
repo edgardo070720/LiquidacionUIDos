@@ -19,7 +19,7 @@ namespace DAL
             FileStream file = new FileStream(name, FileMode.Append);
             StreamWriter writer = new StreamWriter(file);
             writer.WriteLine($"{liquidacion.NumeroLiquidacion};{liquidacion.Cedula};{liquidacion.Nombres};{liquidacion.Apellidos};" +
-                $"{liquidacion.TipoAfiliacion};{liquidacion.SalarioDevengado};{liquidacion.ValorServicio};{liquidacion.Tarifa};{liquidacion.ValorReal};" +
+                $"{liquidacion.TipoAfiliacion};{liquidacion.SalarioDevengado};{liquidacion.ValorServicio};{liquidacion.TarifaAplicada};{liquidacion.ValorReal};" +
                 $"{liquidacion.TopeMaximo};{liquidacion.CuotaModeradora};{liquidacion.Fecha}");
             writer.Close();
             file.Close();
@@ -43,7 +43,7 @@ namespace DAL
                 liquidacion.TipoAfiliacion = matrizLiquidacion[4];
                 liquidacion.SalarioDevengado = Convert.ToDouble(matrizLiquidacion[5]);
                 liquidacion.ValorServicio = Convert.ToDouble(matrizLiquidacion[6]);
-                liquidacion.Tarifa = matrizLiquidacion[7];
+                liquidacion.TarifaAplicada = matrizLiquidacion[7];
                 liquidacion.ValorReal = Convert.ToDouble(matrizLiquidacion[8]);
                 liquidacion.TopeMaximo = matrizLiquidacion[9];
                 liquidacion.CuotaModeradora = Convert.ToDouble(matrizLiquidacion[10]);
@@ -73,7 +73,7 @@ namespace DAL
             foreach (LiquidacionCuotaModeradora liquidacion in liquidacions)
             {
                 writer.WriteLine($"{liquidacion.NumeroLiquidacion};{liquidacion.Cedula};{liquidacion.Nombres};{liquidacion.Apellidos};" +
-                $"{liquidacion.TipoAfiliacion};{liquidacion.SalarioDevengado};{liquidacion.ValorServicio};{liquidacion.Tarifa};{liquidacion.ValorReal};" +
+                $"{liquidacion.TipoAfiliacion};{liquidacion.SalarioDevengado};{liquidacion.ValorServicio};{liquidacion.TarifaAplicada};{liquidacion.ValorReal};" +
                 $"{liquidacion.TopeMaximo};{liquidacion.CuotaModeradora};{liquidacion.Fecha}");
             }
             writer.Close();
