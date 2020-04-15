@@ -12,11 +12,11 @@ namespace DAL
     public class LiquidacionCuotaModeradoraRepository
     {
         LiquidacionCuotaModeradora liquidacion;
-        string name = @"Archivo de Liquidacion.txt";
+        private const string  NAME = @"Archivo de Liquidacion.txt";
 
         public void  GuardarArchivo(LiquidacionCuotaModeradora liquidacion)
         {
-            FileStream file = new FileStream(name, FileMode.Append);
+            FileStream file = new FileStream(NAME, FileMode.Append);
             StreamWriter writer = new StreamWriter(file);
             writer.WriteLine($"{liquidacion.NumeroLiquidacion};{liquidacion.Cedula};{liquidacion.Nombres};{liquidacion.Apellidos};" +
                 $"{liquidacion.TipoAfiliacion};{liquidacion.SalarioDevengado};{liquidacion.ValorServicio};{liquidacion.TarifaAplicada};{liquidacion.ValorReal};" +
@@ -30,7 +30,7 @@ namespace DAL
         {
             List<LiquidacionCuotaModeradora> listaLiquidaciones = new List<LiquidacionCuotaModeradora>();
             string line = string.Empty;
-            FileStream file = new FileStream(name, FileMode.OpenOrCreate, FileAccess.Read);
+            FileStream file = new FileStream(NAME, FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader reader = new StreamReader(file);
             while ((line=reader.ReadLine())!=null)
             {
@@ -68,7 +68,7 @@ namespace DAL
         }
         public void ModificarArchivo(List<LiquidacionCuotaModeradora> liquidacions)
         {
-            FileStream file = new FileStream(name, FileMode.Create);
+            FileStream file = new FileStream(NAME, FileMode.Create);
             StreamWriter writer = new StreamWriter(file);
             foreach (LiquidacionCuotaModeradora liquidacion in liquidacions)
             {
