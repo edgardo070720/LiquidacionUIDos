@@ -65,6 +65,7 @@ namespace LiquidacionUIDos
             // 
             this.TablaLiquidacionDtvg.AllowUserToAddRows = false;
             this.TablaLiquidacionDtvg.AllowUserToDeleteRows = false;
+            this.TablaLiquidacionDtvg.AllowUserToOrderColumns = true;
             this.TablaLiquidacionDtvg.AllowUserToResizeColumns = false;
             this.TablaLiquidacionDtvg.AllowUserToResizeRows = false;
             this.TablaLiquidacionDtvg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -81,13 +82,13 @@ namespace LiquidacionUIDos
             this.Column10,
             this.Column11,
             this.Column12});
-            this.TablaLiquidacionDtvg.Enabled = false;
             this.TablaLiquidacionDtvg.Location = new System.Drawing.Point(22, 53);
             this.TablaLiquidacionDtvg.MultiSelect = false;
             this.TablaLiquidacionDtvg.Name = "TablaLiquidacionDtvg";
+            this.TablaLiquidacionDtvg.ReadOnly = true;
             this.TablaLiquidacionDtvg.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.TablaLiquidacionDtvg.ShowEditingIcon = false;
-            this.TablaLiquidacionDtvg.Size = new System.Drawing.Size(1303, 532);
+            this.TablaLiquidacionDtvg.Size = new System.Drawing.Size(1319, 532);
             this.TablaLiquidacionDtvg.TabIndex = 1;
             // 
             // FiltroTxt
@@ -128,6 +129,7 @@ namespace LiquidacionUIDos
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "Numero de Liquidacion";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Column2
@@ -135,68 +137,83 @@ namespace LiquidacionUIDos
             this.Column2.Frozen = true;
             this.Column2.HeaderText = "Cedula";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.Frozen = true;
             this.Column3.HeaderText = "Nombres ";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 120;
             // 
             // Column4
             // 
             this.Column4.Frozen = true;
             this.Column4.HeaderText = "Apellidos";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 120;
             // 
             // Column5
             // 
             this.Column5.Frozen = true;
             this.Column5.HeaderText = "Tipo de Afiliacion";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 120;
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 160;
             // 
             // Column6
             // 
             this.Column6.Frozen = true;
             this.Column6.HeaderText = "Salario Devengado";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.Frozen = true;
             this.Column7.HeaderText = "Valor del servicio";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.Frozen = true;
             this.Column8.HeaderText = "Tarifa";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 55;
             // 
             // Column9
             // 
             this.Column9.Frozen = true;
             this.Column9.HeaderText = "Valor real";
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
             this.Column10.Frozen = true;
             this.Column10.HeaderText = "Tope Maximo";
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 60;
             // 
             // Column11
             // 
             this.Column11.Frozen = true;
             this.Column11.HeaderText = "Cuota Moderadora";
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
             this.Column12.Frozen = true;
             this.Column12.HeaderText = "Fecha";
             this.Column12.Name = "Column12";
-            this.Column12.Width = 160;
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 180;
             // 
             // VentanaConsultaListaLiquidacion
             // 

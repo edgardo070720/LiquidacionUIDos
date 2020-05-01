@@ -66,6 +66,9 @@
             // 
             // TablaLiquidacionDtgv
             // 
+            this.TablaLiquidacionDtgv.AllowUserToAddRows = false;
+            this.TablaLiquidacionDtgv.AllowUserToDeleteRows = false;
+            this.TablaLiquidacionDtgv.AllowUserToOrderColumns = true;
             this.TablaLiquidacionDtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TablaLiquidacionDtgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroLiquidacion,
@@ -80,9 +83,9 @@
             this.Column8,
             this.Column9,
             this.Column10});
-            this.TablaLiquidacionDtgv.Enabled = false;
             this.TablaLiquidacionDtgv.Location = new System.Drawing.Point(22, 184);
             this.TablaLiquidacionDtgv.Name = "TablaLiquidacionDtgv";
+            this.TablaLiquidacionDtgv.ReadOnly = true;
             this.TablaLiquidacionDtgv.Size = new System.Drawing.Size(1320, 87);
             this.TablaLiquidacionDtgv.TabIndex = 3;
             // 
@@ -154,18 +157,22 @@
             this.NumeroLiquidacion.Frozen = true;
             this.NumeroLiquidacion.HeaderText = "Numero de Liquidacion";
             this.NumeroLiquidacion.Name = "NumeroLiquidacion";
+            this.NumeroLiquidacion.ReadOnly = true;
             // 
             // Cedula
             // 
             this.Cedula.Frozen = true;
             this.Cedula.HeaderText = "Cedula";
             this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "Nombres";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 120;
             // 
             // Column2
             // 
@@ -173,6 +180,7 @@
             this.Column2.HeaderText = "Apellidos";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
             // 
             // Column3
             // 
@@ -180,7 +188,7 @@
             this.Column3.HeaderText = "Tipo de Afiliacion";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 115;
+            this.Column3.Width = 160;
             // 
             // Column4
             // 
@@ -202,6 +210,7 @@
             this.Column6.HeaderText = "Tarifa";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 55;
             // 
             // Column7
             // 
@@ -216,6 +225,7 @@
             this.Column8.HeaderText = "Tope Maximo";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 60;
             // 
             // Column9
             // 
@@ -230,7 +240,7 @@
             this.Column10.HeaderText = "Fecha";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 160;
+            this.Column10.Width = 180;
             // 
             // VentanaModificar
             // 

@@ -47,7 +47,7 @@ namespace LiquidacionUIDos
         private void FiltroTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             TablaLiquidacionDtvg.Rows.Clear();
-            MostrarTabla(service.FiltrarLiquidacion(TipoFiltroCmb.Text, FiltroTxt.Text));
+            MostrarTabla(service.FiltrarLiquidacion(TipoFiltroCmb.Text, FiltroTxt.Text.ToUpper()));
 
         }
     }

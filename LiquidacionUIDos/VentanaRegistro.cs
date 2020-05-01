@@ -21,8 +21,14 @@ namespace LiquidacionUIDos
         public VentanaRegistro()
         {
             InitializeComponent();
+            MostrarFecha();
         }
 
+        public void MostrarFecha()
+        {
+            DateTime date = DateTime.Now;
+            FechaLbl.Text = date.ToShortDateString();
+        }
         private void RegistrarBtn_Click(object sender, EventArgs e)
         {
 
@@ -37,14 +43,14 @@ namespace LiquidacionUIDos
            
             service = new LiquidacionCuotaModeradoraService();
             ValidarInstancia();
-            liquidacion.NumeroLiquidacion = NumeroLiquidacionTxt.Text;
-            liquidacion.Cedula = CedulaTxt.Text;
-            liquidacion.Nombres = NombreTxt.Text;
-            liquidacion.Apellidos = ApellidoTxt.Text;
+            liquidacion.NumeroLiquidacion =  NumeroLiquidacionTxt.Text.ToUpper();
+            liquidacion.Cedula = CedulaTxt.Text.ToUpper();
+            liquidacion.Nombres = NombreTxt.Text.ToUpper();
+            liquidacion.Apellidos = ApellidoTxt.Text.ToUpper();
             liquidacion.SalarioDevengado = Convert.ToDouble(SalarioDevengadoTxt.Text);
             liquidacion.ValorServicio = Convert.ToDouble(ValorServicioTxt.Text);
-            liquidacion.TipoAfiliacion = TipoAfiliacionCmb.Text;
-            liquidacion.Fecha = FechaDtp.Text;
+            liquidacion.TipoAfiliacion = TipoAfiliacionCmb.Text.ToUpper();
+            liquidacion.Fecha = FechaLbl.Text.ToUpper();
             liquidacion.CalcularCuotaModeradora();
             MessageBox.Show(service.GuardarLiquidacion(liquidacion), "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarTexto();
@@ -121,17 +127,6 @@ namespace LiquidacionUIDos
             {
                 EpRegistrar.SetError(TipoAfiliacionCmb,"ingrese afiliacion");
                 TipoAfiliacionCmb.Focus();
-                controlador = 1;
-            }
-            else
-            {
-                EpRegistrar.Clear();
-                
-            }
-            if (FechaDtp.Text=="")
-            {
-                EpRegistrar.SetError(FechaDtp,"ingrese fecha");
-                FechaDtp.Focus();
                 controlador = 1;
             }
             else
