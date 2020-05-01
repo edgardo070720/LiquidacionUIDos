@@ -50,5 +50,25 @@ namespace LiquidacionUIDos
             MostrarTabla(service.FiltrarLiquidacion(TipoFiltroCmb.Text, FiltroTxt.Text.ToUpper()));
 
         }
+
+        private void TipoDeFiltroDosCmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TablaLiquidacionDtvg.Rows.Clear();
+            CantidadTxt.Text=Convert.ToString(service.FiltrarCantidadDeLiquidacion(TipoDeFiltroDosCmb.Text));
+            TotalCuotaTxt.Text = Convert.ToString(service.FiltrarTotalDeCuotas(TipoDeFiltroDosCmb.Text));
+            if (TipoDeFiltroDosCmb.Text=="Total Liquidaciones")
+            {
+                MostrarTabla(service.FiltrarLiquidacion(TipoDeFiltroDosCmb.Text," "));
+            } 
+            if (TipoDeFiltroDosCmb.Text== "Total Regimen Contributivo")
+            {
+                MostrarTabla(service.FiltrarLiquidacion(TipoDeFiltroDosCmb.Text, "REGIMEN CONTRIBUTIVO"));
+            }
+            if (TipoDeFiltroDosCmb.Text== "Total Regimen Subsidiado")
+            {
+                MostrarTabla(service.FiltrarLiquidacion(TipoDeFiltroDosCmb.Text, "REGIMEN SUBSIDIADO"));
+            }
+            
+        }
     }
 }

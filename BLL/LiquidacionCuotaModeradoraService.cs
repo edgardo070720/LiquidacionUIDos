@@ -60,7 +60,14 @@ namespace BLL
         {
             return repository.FiltrarLiquidacion(tipoFiltro, filtro);
         }
-
+        public int FiltrarCantidadDeLiquidacion(string tipoDeFiltro)
+        {
+            return repository.FiltrarCantidadDeLiquidaciones(tipoDeFiltro);
+        }
+        public double FiltrarTotalDeCuotas(string tipoDeFiltro)
+        {
+            return repository.FiltrarTotalDeCuotas(tipoDeFiltro);
+        }
         public bool ValidarExistencia(string numeroLiquidacion)
         {
             

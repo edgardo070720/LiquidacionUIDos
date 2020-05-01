@@ -34,9 +34,6 @@ namespace LiquidacionUIDos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaConsultaListaLiquidacion));
             this.label1 = new System.Windows.Forms.Label();
             this.TablaLiquidacionDtvg = new System.Windows.Forms.DataGridView();
-            this.FiltroTxt = new System.Windows.Forms.TextBox();
-            this.TipoFiltroCmb = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,14 @@ namespace LiquidacionUIDos
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FiltroTxt = new System.Windows.Forms.TextBox();
+            this.TipoFiltroCmb = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TipoDeFiltroDosCmb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CantidadTxt = new System.Windows.Forms.TextBox();
+            this.TotalCuotaTxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.TablaLiquidacionDtvg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,39 +95,6 @@ namespace LiquidacionUIDos
             this.TablaLiquidacionDtvg.ShowEditingIcon = false;
             this.TablaLiquidacionDtvg.Size = new System.Drawing.Size(1319, 532);
             this.TablaLiquidacionDtvg.TabIndex = 1;
-            // 
-            // FiltroTxt
-            // 
-            this.FiltroTxt.Location = new System.Drawing.Point(497, 19);
-            this.FiltroTxt.Name = "FiltroTxt";
-            this.FiltroTxt.Size = new System.Drawing.Size(196, 20);
-            this.FiltroTxt.TabIndex = 2;
-            this.FiltroTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltroTxt_KeyPress);
-            // 
-            // TipoFiltroCmb
-            // 
-            this.TipoFiltroCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TipoFiltroCmb.FormattingEnabled = true;
-            this.TipoFiltroCmb.Items.AddRange(new object[] {
-            "Numero de Liquidacion",
-            "Cedula",
-            "Nombres",
-            "Apellidos",
-            "Tipo de Afiliacion",
-            "Fecha"});
-            this.TipoFiltroCmb.Location = new System.Drawing.Point(302, 19);
-            this.TipoFiltroCmb.Name = "TipoFiltroCmb";
-            this.TipoFiltroCmb.Size = new System.Drawing.Size(165, 21);
-            this.TipoFiltroCmb.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(242, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Filtrar Por:";
             // 
             // Column1
             // 
@@ -215,11 +187,97 @@ namespace LiquidacionUIDos
             this.Column12.ReadOnly = true;
             this.Column12.Width = 180;
             // 
+            // FiltroTxt
+            // 
+            this.FiltroTxt.Location = new System.Drawing.Point(497, 19);
+            this.FiltroTxt.Name = "FiltroTxt";
+            this.FiltroTxt.Size = new System.Drawing.Size(196, 20);
+            this.FiltroTxt.TabIndex = 2;
+            this.FiltroTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltroTxt_KeyPress);
+            // 
+            // TipoFiltroCmb
+            // 
+            this.TipoFiltroCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoFiltroCmb.FormattingEnabled = true;
+            this.TipoFiltroCmb.Items.AddRange(new object[] {
+            "Numero de Liquidacion",
+            "Cedula",
+            "Nombres",
+            "Apellidos",
+            "Tipo de Afiliacion",
+            "Fecha"});
+            this.TipoFiltroCmb.Location = new System.Drawing.Point(302, 19);
+            this.TipoFiltroCmb.Name = "TipoFiltroCmb";
+            this.TipoFiltroCmb.Size = new System.Drawing.Size(165, 21);
+            this.TipoFiltroCmb.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(242, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Filtrar Por:";
+            // 
+            // TipoDeFiltroDosCmb
+            // 
+            this.TipoDeFiltroDosCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoDeFiltroDosCmb.FormattingEnabled = true;
+            this.TipoDeFiltroDosCmb.Items.AddRange(new object[] {
+            "Total Liquidaciones",
+            "Total Regimen Contributivo",
+            "Total Regimen Subsidiado"});
+            this.TipoDeFiltroDosCmb.Location = new System.Drawing.Point(783, 18);
+            this.TipoDeFiltroDosCmb.Name = "TipoDeFiltroDosCmb";
+            this.TipoDeFiltroDosCmb.Size = new System.Drawing.Size(155, 21);
+            this.TipoDeFiltroDosCmb.TabIndex = 5;
+            this.TipoDeFiltroDosCmb.SelectedIndexChanged += new System.EventHandler(this.TipoDeFiltroDosCmb_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(944, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cantidad: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1057, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Total Cuota:";
+            // 
+            // CantidadTxt
+            // 
+            this.CantidadTxt.Enabled = false;
+            this.CantidadTxt.Location = new System.Drawing.Point(1005, 19);
+            this.CantidadTxt.Name = "CantidadTxt";
+            this.CantidadTxt.Size = new System.Drawing.Size(36, 20);
+            this.CantidadTxt.TabIndex = 8;
+            // 
+            // TotalCuotaTxt
+            // 
+            this.TotalCuotaTxt.Enabled = false;
+            this.TotalCuotaTxt.Location = new System.Drawing.Point(1128, 19);
+            this.TotalCuotaTxt.Name = "TotalCuotaTxt";
+            this.TotalCuotaTxt.Size = new System.Drawing.Size(111, 20);
+            this.TotalCuotaTxt.TabIndex = 9;
+            // 
             // VentanaConsultaListaLiquidacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 627);
+            this.ClientSize = new System.Drawing.Size(1370, 642);
+            this.Controls.Add(this.TotalCuotaTxt);
+            this.Controls.Add(this.CantidadTxt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TipoDeFiltroDosCmb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TipoFiltroCmb);
             this.Controls.Add(this.FiltroTxt);
@@ -259,5 +317,10 @@ namespace LiquidacionUIDos
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
         private DataGridViewTextBoxColumn Column12;
+        private ComboBox TipoDeFiltroDosCmb;
+        private Label label3;
+        private Label label4;
+        private TextBox CantidadTxt;
+        private TextBox TotalCuotaTxt;
     }
 }
