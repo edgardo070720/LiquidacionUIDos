@@ -15,17 +15,17 @@ namespace LiquidacionUIDos
     public partial class VentanaConsultaListaLiquidacion : Form
     {
         LiquidacionCuotaModeradoraService service = new LiquidacionCuotaModeradoraService();
-        List<LiquidacionCuotaModeradora> liquidacions = new List<LiquidacionCuotaModeradora>();
+        
         public VentanaConsultaListaLiquidacion()
         {
             InitializeComponent();
-            MostrarTabla();
+            MostrarTabla(service.ConsultarListaListaLiquidacion());
         }
 
-        public void MostrarTabla()
+      
+        public void MostrarTabla(List<LiquidacionCuotaModeradora> liquidacions)
         {
-            liquidacions = service.ConsultarListaLiquidacion();
-
+            
             foreach (LiquidacionCuotaModeradora liquidacion in liquidacions)
             {
                 int i = TablaLiquidacionDtvg.Rows.Add();
@@ -42,6 +42,13 @@ namespace LiquidacionUIDos
                 TablaLiquidacionDtvg.Rows[i].Cells[10].Value = liquidacion.CuotaModeradora;
                 TablaLiquidacionDtvg.Rows[i].Cells[11].Value = liquidacion.Fecha;
             }
+        }
+
+        private void FiltroTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TablaLiquidacionDtvg.Rows.Clear();
+            MostrarTabla(service.FiltrarLiquidacion(TipoFiltroCmb.Text, FiltroTxt.Text));
+
         }
     }
 }

@@ -16,8 +16,8 @@ namespace LiquidacionUIDos
     {
         LiquidacionCuotaModeradora liquidacion;
         LiquidacionCuotaModeradoraService service;
-       
-        
+
+
         public VentanaRegistro()
         {
             InitializeComponent();
@@ -28,29 +28,23 @@ namespace LiquidacionUIDos
 
             if (ValidarCampos())
             {
-                if (ValidarExistencia())
-                {
                     Registrar();
-                }
-                else
-                {
-                    MessageBox.Show("Ya Existe un Registro con este  Numero de Liquidacion ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
         }
 
         public void Registrar()
         {
+           
             service = new LiquidacionCuotaModeradoraService();
             ValidarInstancia();
-            liquidacion.NumeroLiquidacion = Int32.Parse(NumeroLiquidacionTxt.Text);
+            liquidacion.NumeroLiquidacion = NumeroLiquidacionTxt.Text;
             liquidacion.Cedula = CedulaTxt.Text;
             liquidacion.Nombres = NombreTxt.Text;
             liquidacion.Apellidos = ApellidoTxt.Text;
             liquidacion.SalarioDevengado = Convert.ToDouble(SalarioDevengadoTxt.Text);
             liquidacion.ValorServicio = Convert.ToDouble(ValorServicioTxt.Text);
             liquidacion.TipoAfiliacion = TipoAfiliacionCmb.Text;
-            liquidacion.Fecha = $"{DiaCmb.Text}/{MesCmb.Text}/{AñoCmb.Text}";
+            liquidacion.Fecha = FechaDtp.Text;
             liquidacion.CalcularCuotaModeradora();
             MessageBox.Show(service.GuardarLiquidacion(liquidacion), "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarTexto();
@@ -134,12 +128,10 @@ namespace LiquidacionUIDos
                 EpRegistrar.Clear();
                 
             }
-            if ((DiaCmb.Text=="")||(MesCmb.Text=="")||(AñoCmb.Text==""))
+            if (FechaDtp.Text=="")
             {
-                EpRegistrar.SetError(AñoCmb,"ingrese fecha");
-                DiaCmb.Focus();
-                MesCmb.Focus();
-                AñoCmb.Focus();
+                EpRegistrar.SetError(FechaDtp,"ingrese fecha");
+                FechaDtp.Focus();
                 controlador = 1;
             }
             else
@@ -157,19 +149,7 @@ namespace LiquidacionUIDos
                 
             }
         }
-        public bool ValidarExistencia()
-        {
-            service = new LiquidacionCuotaModeradoraService();
-            bool control=true;
-            foreach (LiquidacionCuotaModeradora liquidacion in service.ConsultarListaLiquidacion())
-            {
-                if (NumeroLiquidacionTxt.Text == Convert.ToString(liquidacion.NumeroLiquidacion))
-                {
-                    control = false;
-                }
-            }
-            return control;
-        }
+        
         public void ValidarInstancia()
         {
             if (TipoAfiliacionCmb.Text== "Regimen Contributivo")
@@ -189,10 +169,7 @@ namespace LiquidacionUIDos
             ApellidoTxt.Text = "";
             SalarioDevengadoTxt.Text = "";
             ValorServicioTxt.Text = "";
-            TipoAfiliacionCmb.Items.Equals("Seleccione");
-            DiaCmb.Items.Equals("dia");
-            MesCmb.Items.Equals("mes");
-            AñoCmb.Items.Equals("año");
+           
         }
 
        

@@ -14,7 +14,7 @@ namespace Entity
             {
                 Tarifa= 0.15;
             }
-            if ((SalarioDevengado <= 1755606) && (SalarioDevengado <= 4389015))
+            if ((SalarioDevengado >= 1755606) && (SalarioDevengado <= 4389015))
             {
                 Tarifa=0.2;
             }

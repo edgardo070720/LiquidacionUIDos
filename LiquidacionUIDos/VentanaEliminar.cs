@@ -21,11 +21,7 @@ namespace LiquidacionUIDos
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            VentanaConsultaLiquidacion ventanaConsultaLiquidacion = new VentanaConsultaLiquidacion();
-            ventanaConsultaLiquidacion.Show();
-        }
+        
 
         private void EliminarBtn_Click(object sender, EventArgs e)
         {
@@ -38,50 +34,17 @@ namespace LiquidacionUIDos
             else
             {
                 EpNumeroLiquidacion.Clear();
-                Eliminar();
-                
-            }
-        }
-
-        private void ConsultarListaBtn_Click(object sender, EventArgs e)
-        {
-            VentanaConsultaListaLiquidacion ventanaConsultaLista = new VentanaConsultaListaLiquidacion();
-            ventanaConsultaLista.Show();
-        }
-
-        public void Eliminar()
-        {
-            int index=0;
-            int control = 0;
-            List<LiquidacionCuotaModeradora> liquidacions = new List<LiquidacionCuotaModeradora>();
-            liquidacions = service.ConsultarListaLiquidacion();
-            foreach (LiquidacionCuotaModeradora liquidacion in liquidacions )
-            {
-                if (liquidacion.NumeroLiquidacion == Convert.ToInt32(NumeroLiquidacionTxt.Text))
+                DialogResult dialog = MessageBox.Show("¿seguro desea eliminar?","",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+                if (dialog==DialogResult.Yes)
                 {
-                     index=liquidacions.IndexOf(liquidacion);
-                    control = 1;
-                    
+                    MessageBox.Show(service.EliminarLiquidacion(NumeroLiquidacionTxt.Text), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            
-            if (control==0)
-            {
-                MessageBox.Show("No se encontro registro con ese nuemro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NumeroLiquidacionTxt.Text = "";
-            }
-            else
-            {
-                liquidacions.RemoveAt(index);
-                MessageBox.Show(service.EliminarLiquidacion(liquidacions), "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 NumeroLiquidacionTxt.Text = "";
             }
         }
 
-        private void NumeroLiquidacionTxt_Validated(object sender, EventArgs e)
-        {
-            
-        }
+     
+
 
         private void NumeroLiquidacionTxt_KeyPress(object sender, KeyPressEventArgs e)
         {

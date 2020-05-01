@@ -12,9 +12,8 @@ namespace Entity
         {
 
         }
-        RegimenContributivo contributivo;
-        RegimenSubsidiado subsidiado;
-        public int NumeroLiquidacion { get; set; }
+        
+        public string NumeroLiquidacion { get; set; }
         public string Cedula { get; set; }
         public string TipoAfiliacion { get; set; }
         public double SalarioDevengado { get; set; }

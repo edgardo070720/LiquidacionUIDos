@@ -20,27 +20,27 @@ namespace LiquidacionUIDos
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VentanaRegistro ventanaRegistro = new VentanaRegistro();
-            ventanaRegistro.Show();
+            AbrirVentanaEnPanel(ventanaRegistro);
         }
 
         private void liquidacionIndividualToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
             VentanaConsultaLiquidacion ventanaConsultaLiquidacion = new VentanaConsultaLiquidacion();
-            ventanaConsultaLiquidacion.Show();
+            AbrirVentanaEnPanel(ventanaConsultaLiquidacion);
         }
 
         private void lisatadoDeLiquidacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VentanaConsultaListaLiquidacion ventanaConsultaLista = new VentanaConsultaListaLiquidacion();
-            ventanaConsultaLista.Show();
+            VentanaConsultaListaLiquidacion ventanalistaLiquidacion = new VentanaConsultaListaLiquidacion();
+            AbrirVentanaEnPanel(ventanalistaLiquidacion);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
             VentanaModificar ventanaModificar = new VentanaModificar();
-            ventanaModificar.Show();
+            AbrirVentanaEnPanel(ventanaModificar);
             
         }
 
@@ -48,7 +48,20 @@ namespace LiquidacionUIDos
         {
            
             VentanaEliminar ventanaEliminar = new VentanaEliminar();
-            ventanaEliminar.Show();
+            AbrirVentanaEnPanel(ventanaEliminar);
+        }
+
+        private void AbrirVentanaEnPanel(object ventana)
+        {
+            if (this.PanelContenedorPnl.Controls.Count>0)
+                this.PanelContenedorPnl.Controls.RemoveAt(0);
+                Form vn = ventana as Form;
+                vn.TopLevel = false;
+                vn.Dock = DockStyle.Fill;
+                this.PanelContenedorPnl.Controls.Add(vn);
+                this.PanelContenedorPnl.Tag = vn;
+                vn.Show();
+            
         }
     }
 }

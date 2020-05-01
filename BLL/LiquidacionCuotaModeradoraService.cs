@@ -13,25 +13,66 @@ namespace BLL
         LiquidacionCuotaModeradoraRepository repository = new LiquidacionCuotaModeradoraRepository();
         public string GuardarLiquidacion(LiquidacionCuotaModeradora liquidacion)
         {
-            repository.GuardarArchivo(liquidacion);
-            return "Se registro exitosamente"; 
+            if (ValidarExistencia(liquidacion.NumeroLiquidacion))
+            {
+                 return " ya existe un registro con este numero";
+            }
+            else
+            {
+               return repository.GuardarArchivo(liquidacion);
+            }
         }
-        public List<LiquidacionCuotaModeradora> ConsultarListaLiquidacion()
+        public List<LiquidacionCuotaModeradora> ConsultarListaListaLiquidacion()
         {
-          return  repository.LeerArchivo();
+          return  repository.LeerArchivo().ToList();
         }
 
-        public string EliminarLiquidacion(List<LiquidacionCuotaModeradora>liquidacions)
+        public string EliminarLiquidacion(string nuemroLiquidacion)
         {
-            repository.ModificarArchivo(liquidacions);
-
-            return "Se ha eliminado correctamente";
+            if (ValidarExistencia(nuemroLiquidacion))
+            {
+                return repository.EliminarEnArchivo(nuemroLiquidacion);
+            }
+            else
+            {
+                return "no se encontro liquidacion con ese numero";
+            }
+            
         }
 
-        public string ModificarLiquidacion(List<LiquidacionCuotaModeradora> liquidacions)
+        public string ModificarLiquidacion(string numeroLiquidacion, double valorServicio)
         {
-            repository.ModificarArchivo(liquidacions);
-            return "se ha modificado correctamente";
+            if (ValidarExistencia(numeroLiquidacion))
+            {
+                return repository.ModifocarEnArchivo(numeroLiquidacion, valorServicio);
+            }
+            else
+            {
+                return "no se encontro registro con este numero";
+            }
+        }
+        public LiquidacionCuotaModeradora ConsultarLiquidacion(string numeroliquidacion)
+        {
+            return repository.ConsultarEnArchivo(numeroliquidacion);
+        }
+
+        public List<LiquidacionCuotaModeradora> FiltrarLiquidacion(string tipoFiltro, string filtro)
+        {
+            return repository.FiltrarLiquidacion(tipoFiltro, filtro);
+        }
+
+        public bool ValidarExistencia(string numeroLiquidacion)
+        {
+            
+            bool control = false;
+            foreach (LiquidacionCuotaModeradora liquidacion in ConsultarListaListaLiquidacion())
+            {
+                if (numeroLiquidacion == liquidacion.NumeroLiquidacion)
+                {
+                    control = true;
+                }
+            }
+            return control;
         }
     }
 }

@@ -33,9 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NumeroLiquidacionTxt = new System.Windows.Forms.TextBox();
             this.EliminarBtn = new System.Windows.Forms.Button();
-            this.ConsultarListaBtn = new System.Windows.Forms.Button();
-            this.ConsultarBtn = new System.Windows.Forms.Button();
             this.EpNumeroLiquidacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EpNumeroLiquidacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,11 +54,10 @@
             this.NumeroLiquidacionTxt.Size = new System.Drawing.Size(288, 20);
             this.NumeroLiquidacionTxt.TabIndex = 1;
             this.NumeroLiquidacionTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeroLiquidacionTxt_KeyPress);
-            this.NumeroLiquidacionTxt.Validated += new System.EventHandler(this.NumeroLiquidacionTxt_Validated);
             // 
             // EliminarBtn
             // 
-            this.EliminarBtn.Location = new System.Drawing.Point(217, 177);
+            this.EliminarBtn.Location = new System.Drawing.Point(430, 171);
             this.EliminarBtn.Name = "EliminarBtn";
             this.EliminarBtn.Size = new System.Drawing.Size(75, 23);
             this.EliminarBtn.TabIndex = 2;
@@ -68,40 +66,29 @@
             this.EliminarBtn.Click += new System.EventHandler(this.EliminarBtn_Click);
             this.EliminarBtn.Validated += new System.EventHandler(this.EliminarBtn_Click);
             // 
-            // ConsultarListaBtn
-            // 
-            this.ConsultarListaBtn.Location = new System.Drawing.Point(307, 177);
-            this.ConsultarListaBtn.Name = "ConsultarListaBtn";
-            this.ConsultarListaBtn.Size = new System.Drawing.Size(101, 23);
-            this.ConsultarListaBtn.TabIndex = 3;
-            this.ConsultarListaBtn.Text = "consultar Lista";
-            this.ConsultarListaBtn.UseVisualStyleBackColor = true;
-            this.ConsultarListaBtn.Click += new System.EventHandler(this.ConsultarListaBtn_Click);
-            // 
-            // ConsultarBtn
-            // 
-            this.ConsultarBtn.Location = new System.Drawing.Point(430, 177);
-            this.ConsultarBtn.Name = "ConsultarBtn";
-            this.ConsultarBtn.Size = new System.Drawing.Size(75, 23);
-            this.ConsultarBtn.TabIndex = 4;
-            this.ConsultarBtn.Text = "Consultar";
-            this.ConsultarBtn.UseVisualStyleBackColor = true;
-            this.ConsultarBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
             // EpNumeroLiquidacion
             // 
             this.EpNumeroLiquidacion.ContainerControl = this;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(292, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Eliminar Liquidacion";
             // 
             // VentanaEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 340);
-            this.Controls.Add(this.ConsultarBtn);
-            this.Controls.Add(this.ConsultarListaBtn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.EliminarBtn);
             this.Controls.Add(this.NumeroLiquidacionTxt);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VentanaEliminar";
             this.Text = "Eliminar";
@@ -116,8 +103,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NumeroLiquidacionTxt;
         private System.Windows.Forms.Button EliminarBtn;
-        private System.Windows.Forms.Button ConsultarListaBtn;
-        private System.Windows.Forms.Button ConsultarBtn;
         private System.Windows.Forms.ErrorProvider EpNumeroLiquidacion;
+        private System.Windows.Forms.Label label2;
     }
 }

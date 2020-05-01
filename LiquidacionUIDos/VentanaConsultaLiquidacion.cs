@@ -33,17 +33,13 @@ namespace LiquidacionUIDos
         }
         public void BuscarLiquidacion()
         {
-            int control = 0;
-            foreach (LiquidacionCuotaModeradora liquidacion in service.ConsultarListaLiquidacion())
+            
+            
+            if (service.ValidarExistencia(NumeroLiquidacionTxt.Text))
             {
-                if (liquidacion.NumeroLiquidacion== Convert.ToInt32( NumeroLiquidacionTxt.Text))
-                {
-                    TablaLiquidacionDtgv.Rows.Clear();
-                    LlenarTabla(liquidacion);
-                    control = 1;
-                }
+                LlenarTabla(service.ConsultarLiquidacion(NumeroLiquidacionTxt.Text));
             }
-            if (control==0)
+            else
             {
                 MessageBox.Show("No se encontro liquidacion registrada con ese numero", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TablaLiquidacionDtgv.Rows.Clear();

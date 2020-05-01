@@ -15,7 +15,7 @@ namespace LiquidacionUIDos
     public partial class VentanaModificar : Form
     {
         LiquidacionCuotaModeradoraService service = new LiquidacionCuotaModeradoraService();
-        int numeroLiquidacion;
+     
         public VentanaModificar()
         {
             InitializeComponent();
@@ -38,7 +38,6 @@ namespace LiquidacionUIDos
                     label1.Visible = false;
                     NumeroLiquidacionTxt.Visible = false;
                     BuscarBtn.Visible = false;
-                    NumeroLiquidacionTxt.Text = "";
                 }
                 else
                 {
@@ -59,9 +58,15 @@ namespace LiquidacionUIDos
             else
             {
                 EpModificar.Clear();
-                Modificar();
+                DialogResult dialog = MessageBox.Show("¿seguro desea modificar?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialog == DialogResult.Yes)
+                {
+                    MessageBox.Show(service.ModificarLiquidacion(NumeroLiquidacionTxt.Text, Convert.ToDouble(ValorServicioTxt.Text)), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TablaLiquidacionDtgv.Rows.Clear();
+                    LlenarTabla(service.ConsultarLiquidacion(NumeroLiquidacionTxt.Text));
+                }
                 ValorServicioTxt.Text = "";
-                MessageBox.Show("Se modifico correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                NumeroLiquidacionTxt.Text = "";
                 ValorServicioLbl.Visible = false;
                 ValorServicioTxt.Visible = false;
                 ModificarBtn.Visible = false;
@@ -74,45 +79,18 @@ namespace LiquidacionUIDos
 
         public bool Buscar()
         {
-            int control = 0;
-
-            foreach (LiquidacionCuotaModeradora liquidacion in service.ConsultarListaLiquidacion())
+            if (service.ValidarExistencia(NumeroLiquidacionTxt.Text))
             {
-                if (liquidacion.NumeroLiquidacion==Convert.ToInt32( NumeroLiquidacionTxt.Text))
-                {
-                    TablaLiquidacionDtgv.Rows.Clear();
-                    LlenarTabla(liquidacion);
-                    numeroLiquidacion = liquidacion.NumeroLiquidacion;
-                    control = 1;
-                }
-            }
-            if (control==0)
-            {
-                return false;
+                LlenarTabla(service.ConsultarLiquidacion(NumeroLiquidacionTxt.Text));
+                return true;
             }
             else
             {
-                return true;
-            }       
-
-        }
-        
-        public void Modificar()
-        {
-            List<LiquidacionCuotaModeradora> liquidacions = new List<LiquidacionCuotaModeradora>();
-            liquidacions = service.ConsultarListaLiquidacion();
-            foreach (LiquidacionCuotaModeradora liquidacion in liquidacions)
-            {
-                if (liquidacion.NumeroLiquidacion==numeroLiquidacion)
-                {
-                    TablaLiquidacionDtgv.Rows.Clear();
-                    liquidacion.ValorServicio = Convert.ToDouble( ValorServicioTxt.Text);
-                    liquidacion.CalcularCuotaModeradora();
-                    service.ModificarLiquidacion(liquidacions);
-                    LlenarTabla(liquidacion);
-                }
+                return false;
             }
         }
+        
+       
         public void LlenarTabla(LiquidacionCuotaModeradora liquidacion)
         {
             int i = TablaLiquidacionDtgv.Rows.Add();
