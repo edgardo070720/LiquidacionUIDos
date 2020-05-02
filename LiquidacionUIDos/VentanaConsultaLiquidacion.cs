@@ -45,21 +45,24 @@ namespace LiquidacionUIDos
                 TablaLiquidacionDtgv.Rows.Clear();
             }
         }
-        public void LlenarTabla(LiquidacionCuotaModeradora liquidacion)
+        private void LlenarTabla(IList< LiquidacionCuotaModeradora> liquidacions)
         {
-            int i = TablaLiquidacionDtgv.Rows.Add();
-            TablaLiquidacionDtgv.Rows[i].Cells[0].Value = liquidacion.NumeroLiquidacion;
-            TablaLiquidacionDtgv.Rows[i].Cells[1].Value = liquidacion.Cedula;
-            TablaLiquidacionDtgv.Rows[i].Cells[2].Value = liquidacion.Nombres;
-            TablaLiquidacionDtgv.Rows[i].Cells[3].Value = liquidacion.Apellidos;
-            TablaLiquidacionDtgv.Rows[i].Cells[4].Value = liquidacion.TipoAfiliacion;
-            TablaLiquidacionDtgv.Rows[i].Cells[5].Value = liquidacion.SalarioDevengado;
-            TablaLiquidacionDtgv.Rows[i].Cells[6].Value = liquidacion.ValorServicio;
-            TablaLiquidacionDtgv.Rows[i].Cells[7].Value = liquidacion.TarifaAplicada;
-            TablaLiquidacionDtgv.Rows[i].Cells[8].Value = liquidacion.ValorReal;
-            TablaLiquidacionDtgv.Rows[i].Cells[9].Value = liquidacion.TopeMaximo;
-            TablaLiquidacionDtgv.Rows[i].Cells[10].Value = liquidacion.CuotaModeradora;
-            TablaLiquidacionDtgv.Rows[i].Cells[11].Value = liquidacion.Fecha;
+            foreach (LiquidacionCuotaModeradora liquidacion in liquidacions)
+            {
+                int i = TablaLiquidacionDtgv.Rows.Add();
+                TablaLiquidacionDtgv.Rows[i].Cells[0].Value = liquidacion.NumeroLiquidacion;
+                TablaLiquidacionDtgv.Rows[i].Cells[1].Value = liquidacion.Cedula;
+                TablaLiquidacionDtgv.Rows[i].Cells[2].Value = liquidacion.Nombres;
+                TablaLiquidacionDtgv.Rows[i].Cells[3].Value = liquidacion.Apellidos;
+                TablaLiquidacionDtgv.Rows[i].Cells[4].Value = liquidacion.TipoAfiliacion;
+                TablaLiquidacionDtgv.Rows[i].Cells[5].Value = liquidacion.SalarioDevengado;
+                TablaLiquidacionDtgv.Rows[i].Cells[6].Value = liquidacion.ValorServicio;
+                TablaLiquidacionDtgv.Rows[i].Cells[7].Value = liquidacion.TarifaAplicada;
+                TablaLiquidacionDtgv.Rows[i].Cells[8].Value = liquidacion.ValorReal;
+                TablaLiquidacionDtgv.Rows[i].Cells[9].Value = liquidacion.TopeMaximo;
+                TablaLiquidacionDtgv.Rows[i].Cells[10].Value = liquidacion.CuotaModeradora;
+                TablaLiquidacionDtgv.Rows[i].Cells[11].Value = liquidacion.Fecha;
+            }
         }
 
         public bool ValidarCampo()

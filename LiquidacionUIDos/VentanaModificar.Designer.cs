@@ -32,13 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaModificar));
             this.label1 = new System.Windows.Forms.Label();
             this.TablaLiquidacionDtgv = new System.Windows.Forms.DataGridView();
-            this.NumeroLiquidacionTxt = new System.Windows.Forms.TextBox();
-            this.ValorServicioLbl = new System.Windows.Forms.Label();
-            this.ValorServicioTxt = new System.Windows.Forms.TextBox();
-            this.BuscarBtn = new System.Windows.Forms.Button();
-            this.ModificarBtn = new System.Windows.Forms.Button();
-            this.EpModificar = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.NumeroLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +44,13 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroLiquidacionTxt = new System.Windows.Forms.TextBox();
+            this.ValorServicioLbl = new System.Windows.Forms.Label();
+            this.ValorServicioTxt = new System.Windows.Forms.TextBox();
+            this.BuscarBtn = new System.Windows.Forms.Button();
+            this.ModificarBtn = new System.Windows.Forms.Button();
+            this.EpModificar = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaLiquidacionDtgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EpModificar)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +69,8 @@
             this.TablaLiquidacionDtgv.AllowUserToAddRows = false;
             this.TablaLiquidacionDtgv.AllowUserToDeleteRows = false;
             this.TablaLiquidacionDtgv.AllowUserToOrderColumns = true;
+            this.TablaLiquidacionDtgv.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.TablaLiquidacionDtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TablaLiquidacionDtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TablaLiquidacionDtgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroLiquidacion,
@@ -88,69 +90,6 @@
             this.TablaLiquidacionDtgv.ReadOnly = true;
             this.TablaLiquidacionDtgv.Size = new System.Drawing.Size(1320, 87);
             this.TablaLiquidacionDtgv.TabIndex = 3;
-            // 
-            // NumeroLiquidacionTxt
-            // 
-            this.NumeroLiquidacionTxt.Location = new System.Drawing.Point(230, 116);
-            this.NumeroLiquidacionTxt.Name = "NumeroLiquidacionTxt";
-            this.NumeroLiquidacionTxt.Size = new System.Drawing.Size(158, 20);
-            this.NumeroLiquidacionTxt.TabIndex = 4;
-            this.NumeroLiquidacionTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeroLiquidacionTxt_KeyPress);
-            this.NumeroLiquidacionTxt.Validated += new System.EventHandler(this.BuscarBtn_Click);
-            // 
-            // ValorServicioLbl
-            // 
-            this.ValorServicioLbl.AutoSize = true;
-            this.ValorServicioLbl.Location = new System.Drawing.Point(111, 150);
-            this.ValorServicioLbl.Name = "ValorServicioLbl";
-            this.ValorServicioLbl.Size = new System.Drawing.Size(89, 13);
-            this.ValorServicioLbl.TabIndex = 5;
-            this.ValorServicioLbl.Text = "Valor del Servicio";
-            this.ValorServicioLbl.Visible = false;
-            // 
-            // ValorServicioTxt
-            // 
-            this.ValorServicioTxt.Location = new System.Drawing.Point(230, 147);
-            this.ValorServicioTxt.Name = "ValorServicioTxt";
-            this.ValorServicioTxt.Size = new System.Drawing.Size(158, 20);
-            this.ValorServicioTxt.TabIndex = 6;
-            this.ValorServicioTxt.Visible = false;
-            this.ValorServicioTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValorServicioTxt_KeyPress);
-            this.ValorServicioTxt.Validated += new System.EventHandler(this.ModificarBtn_Click);
-            // 
-            // BuscarBtn
-            // 
-            this.BuscarBtn.Location = new System.Drawing.Point(429, 116);
-            this.BuscarBtn.Name = "BuscarBtn";
-            this.BuscarBtn.Size = new System.Drawing.Size(75, 23);
-            this.BuscarBtn.TabIndex = 7;
-            this.BuscarBtn.Text = "Buscar";
-            this.BuscarBtn.UseVisualStyleBackColor = true;
-            this.BuscarBtn.Click += new System.EventHandler(this.BuscarBtn_Click);
-            // 
-            // ModificarBtn
-            // 
-            this.ModificarBtn.Location = new System.Drawing.Point(429, 145);
-            this.ModificarBtn.Name = "ModificarBtn";
-            this.ModificarBtn.Size = new System.Drawing.Size(75, 23);
-            this.ModificarBtn.TabIndex = 8;
-            this.ModificarBtn.Text = "Modificar";
-            this.ModificarBtn.UseVisualStyleBackColor = true;
-            this.ModificarBtn.Visible = false;
-            this.ModificarBtn.Click += new System.EventHandler(this.ModificarBtn_Click);
-            // 
-            // EpModificar
-            // 
-            this.EpModificar.ContainerControl = this;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(447, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Modificar Liquidacion";
             // 
             // NumeroLiquidacion
             // 
@@ -241,6 +180,69 @@
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             this.Column10.Width = 180;
+            // 
+            // NumeroLiquidacionTxt
+            // 
+            this.NumeroLiquidacionTxt.Location = new System.Drawing.Point(230, 116);
+            this.NumeroLiquidacionTxt.Name = "NumeroLiquidacionTxt";
+            this.NumeroLiquidacionTxt.Size = new System.Drawing.Size(158, 20);
+            this.NumeroLiquidacionTxt.TabIndex = 4;
+            this.NumeroLiquidacionTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeroLiquidacionTxt_KeyPress);
+            this.NumeroLiquidacionTxt.Validated += new System.EventHandler(this.BuscarBtn_Click);
+            // 
+            // ValorServicioLbl
+            // 
+            this.ValorServicioLbl.AutoSize = true;
+            this.ValorServicioLbl.Location = new System.Drawing.Point(111, 150);
+            this.ValorServicioLbl.Name = "ValorServicioLbl";
+            this.ValorServicioLbl.Size = new System.Drawing.Size(89, 13);
+            this.ValorServicioLbl.TabIndex = 5;
+            this.ValorServicioLbl.Text = "Valor del Servicio";
+            this.ValorServicioLbl.Visible = false;
+            // 
+            // ValorServicioTxt
+            // 
+            this.ValorServicioTxt.Location = new System.Drawing.Point(230, 147);
+            this.ValorServicioTxt.Name = "ValorServicioTxt";
+            this.ValorServicioTxt.Size = new System.Drawing.Size(158, 20);
+            this.ValorServicioTxt.TabIndex = 6;
+            this.ValorServicioTxt.Visible = false;
+            this.ValorServicioTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValorServicioTxt_KeyPress);
+            this.ValorServicioTxt.Validated += new System.EventHandler(this.ModificarBtn_Click);
+            // 
+            // BuscarBtn
+            // 
+            this.BuscarBtn.Location = new System.Drawing.Point(429, 116);
+            this.BuscarBtn.Name = "BuscarBtn";
+            this.BuscarBtn.Size = new System.Drawing.Size(75, 23);
+            this.BuscarBtn.TabIndex = 7;
+            this.BuscarBtn.Text = "Buscar";
+            this.BuscarBtn.UseVisualStyleBackColor = true;
+            this.BuscarBtn.Click += new System.EventHandler(this.BuscarBtn_Click);
+            // 
+            // ModificarBtn
+            // 
+            this.ModificarBtn.Location = new System.Drawing.Point(429, 145);
+            this.ModificarBtn.Name = "ModificarBtn";
+            this.ModificarBtn.Size = new System.Drawing.Size(75, 23);
+            this.ModificarBtn.TabIndex = 8;
+            this.ModificarBtn.Text = "Modificar";
+            this.ModificarBtn.UseVisualStyleBackColor = true;
+            this.ModificarBtn.Visible = false;
+            this.ModificarBtn.Click += new System.EventHandler(this.ModificarBtn_Click);
+            // 
+            // EpModificar
+            // 
+            this.EpModificar.ContainerControl = this;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(447, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Modificar Liquidacion";
             // 
             // VentanaModificar
             // 

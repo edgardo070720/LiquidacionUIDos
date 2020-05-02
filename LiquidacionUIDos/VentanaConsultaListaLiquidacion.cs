@@ -14,12 +14,14 @@ namespace LiquidacionUIDos
 {
     public partial class VentanaConsultaListaLiquidacion : Form
     {
-        LiquidacionCuotaModeradoraService service = new LiquidacionCuotaModeradoraService();
+        LiquidacionCuotaModeradoraService service;
         
         public VentanaConsultaListaLiquidacion()
         {
+            service = new LiquidacionCuotaModeradoraService();
             InitializeComponent();
             MostrarTabla(service.ConsultarListaListaLiquidacion());
+            
         }
 
       
@@ -49,10 +51,12 @@ namespace LiquidacionUIDos
             TablaLiquidacionDtvg.Rows.Clear();
             MostrarTabla(service.FiltrarLiquidacion(TipoFiltroCmb.Text, FiltroTxt.Text.ToUpper()));
 
+
         }
 
         private void TipoDeFiltroDosCmb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             TablaLiquidacionDtvg.Rows.Clear();
             CantidadTxt.Text=Convert.ToString(service.FiltrarCantidadDeLiquidacion(TipoDeFiltroDosCmb.Text));
             TotalCuotaTxt.Text = Convert.ToString(service.FiltrarTotalDeCuotas(TipoDeFiltroDosCmb.Text));
@@ -69,6 +73,13 @@ namespace LiquidacionUIDos
                 MostrarTabla(service.FiltrarLiquidacion(TipoDeFiltroDosCmb.Text, "REGIMEN SUBSIDIADO"));
             }
             
+            FiltroTxt.Text = " ";
+        }
+
+        private void TipoFiltroCmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TablaLiquidacionDtvg.Rows.Clear();
+            MostrarTabla(service.ConsultarListaListaLiquidacion());
         }
     }
 }

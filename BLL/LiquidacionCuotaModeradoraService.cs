@@ -51,7 +51,7 @@ namespace BLL
                 return "no se encontro registro con este numero";
             }
         }
-        public LiquidacionCuotaModeradora ConsultarLiquidacion(string numeroliquidacion)
+        public IList< LiquidacionCuotaModeradora> ConsultarLiquidacion(string numeroliquidacion)
         {
             return repository.ConsultarEnArchivo(numeroliquidacion);
         }

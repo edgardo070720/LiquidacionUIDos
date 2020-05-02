@@ -73,6 +73,8 @@ namespace LiquidacionUIDos
             this.TablaLiquidacionDtvg.AllowUserToOrderColumns = true;
             this.TablaLiquidacionDtvg.AllowUserToResizeColumns = false;
             this.TablaLiquidacionDtvg.AllowUserToResizeRows = false;
+            this.TablaLiquidacionDtvg.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.TablaLiquidacionDtvg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TablaLiquidacionDtvg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TablaLiquidacionDtvg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -210,6 +212,7 @@ namespace LiquidacionUIDos
             this.TipoFiltroCmb.Name = "TipoFiltroCmb";
             this.TipoFiltroCmb.Size = new System.Drawing.Size(165, 21);
             this.TipoFiltroCmb.TabIndex = 3;
+            this.TipoFiltroCmb.SelectedIndexChanged += new System.EventHandler(this.TipoFiltroCmb_SelectedIndexChanged);
             // 
             // label2
             // 

@@ -33,9 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NumeroLiquidacionTxt = new System.Windows.Forms.TextBox();
             this.TablaLiquidacionDtgv = new System.Windows.Forms.DataGridView();
-            this.BuscarBtn = new System.Windows.Forms.Button();
-            this.EpBuscar = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.NumeroLiquidacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +45,9 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuscarBtn = new System.Windows.Forms.Button();
+            this.EpBuscar = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaLiquidacionDtgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EpBuscar)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +75,8 @@
             this.TablaLiquidacionDtgv.AllowUserToAddRows = false;
             this.TablaLiquidacionDtgv.AllowUserToDeleteRows = false;
             this.TablaLiquidacionDtgv.AllowUserToOrderColumns = true;
+            this.TablaLiquidacionDtgv.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.TablaLiquidacionDtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TablaLiquidacionDtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TablaLiquidacionDtgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroLiquidacion,
@@ -94,29 +96,6 @@
             this.TablaLiquidacionDtgv.ReadOnly = true;
             this.TablaLiquidacionDtgv.Size = new System.Drawing.Size(1335, 87);
             this.TablaLiquidacionDtgv.TabIndex = 2;
-            // 
-            // BuscarBtn
-            // 
-            this.BuscarBtn.Location = new System.Drawing.Point(375, 75);
-            this.BuscarBtn.Name = "BuscarBtn";
-            this.BuscarBtn.Size = new System.Drawing.Size(75, 23);
-            this.BuscarBtn.TabIndex = 3;
-            this.BuscarBtn.Text = "Buscar";
-            this.BuscarBtn.UseVisualStyleBackColor = true;
-            this.BuscarBtn.Click += new System.EventHandler(this.BuscarBtn_Click);
-            // 
-            // EpBuscar
-            // 
-            this.EpBuscar.ContainerControl = this;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(562, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Consulta De Liquidacion";
             // 
             // NumeroLiquidacion
             // 
@@ -207,6 +186,29 @@
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             this.Column10.Width = 180;
+            // 
+            // BuscarBtn
+            // 
+            this.BuscarBtn.Location = new System.Drawing.Point(375, 75);
+            this.BuscarBtn.Name = "BuscarBtn";
+            this.BuscarBtn.Size = new System.Drawing.Size(75, 23);
+            this.BuscarBtn.TabIndex = 3;
+            this.BuscarBtn.Text = "Buscar";
+            this.BuscarBtn.UseVisualStyleBackColor = true;
+            this.BuscarBtn.Click += new System.EventHandler(this.BuscarBtn_Click);
+            // 
+            // EpBuscar
+            // 
+            this.EpBuscar.ContainerControl = this;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(562, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Consulta De Liquidacion";
             // 
             // VentanaConsultaLiquidacion
             // 

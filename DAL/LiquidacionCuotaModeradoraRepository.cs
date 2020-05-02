@@ -134,18 +134,12 @@ namespace DAL
             return null;
         }
 
-        public LiquidacionCuotaModeradora ConsultarEnArchivo(string numeroLiquidacion)
+        public IList< LiquidacionCuotaModeradora> ConsultarEnArchivo(string numeroLiquidacion)
         {
-            List<LiquidacionCuotaModeradora> liquidacions = new List<LiquidacionCuotaModeradora>();
+            IList<LiquidacionCuotaModeradora> liquidacions = new List<LiquidacionCuotaModeradora>();
             liquidacions = LeerArchivo().ToList();
-            foreach (LiquidacionCuotaModeradora liquidacionCuota in liquidacions)
-            {
-                if (numeroLiquidacion == liquidacion.NumeroLiquidacion)
-                {
-                    return liquidacion;
-                }
-            }
-            return null;
+            
+            return liquidacions = liquidacions.Where(l=>l.NumeroLiquidacion.Equals(numeroLiquidacion)).ToList();
         }
 
         public List<LiquidacionCuotaModeradora> FiltrarLiquidacion(string tipoFiltro, string filtro)
